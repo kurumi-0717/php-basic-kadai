@@ -1,44 +1,36 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PHP基礎練習</title>
-    <style>
-        .box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: 200px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <div class="box">
-    <?php
-    function sort_2way(array &$array, bool $order)
-    {
-        if ($order === true) {
-            sort($array); // 昇順
-        } else {
-            rsort($array); // 降順
-        }
-    }
+    
+<?php
 
-    $nums = [15, 4, 18, 23, 10];
-
-    // 昇順
-    sort_2way($nums, true);
-    echo "昇順にソートします。<br>";
-    foreach ($nums as $num) {
-        echo $num . "<br>";
+function sort_2way($array, $order = 'asc') {
+    if ($order === 'asc') {
+        sort($array);
+    } elseif ($order === 'desc') {
+        rsort($array);
     }
-
-    // 降順
-    sort_2way($nums, false);
-    echo "降順にソートします。<br>";
-    foreach ($nums as $num) {
-        echo $num . "<br>";
+    
+    foreach($array as $value) {
+        echo "$value";
+        echo "<br>";
     }
-    ?>
-    </div>
+}
+
+$array_data = [15, 4, 18, 23, 10];
+
+echo "Ascending Order:<br>";
+sort_2way($array_data, 'asc');
+
+echo "<br>Descending Order:<br>";
+sort_2way($array_data, 'desc');
+
+?>
+
 </body>
 </html>
