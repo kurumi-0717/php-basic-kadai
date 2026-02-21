@@ -4,23 +4,20 @@ $array = [15, 4, 18, 23, 10];
 function sort_2way($array, $order) {
     if ($order === true) {
         echo '昇順にソートします。<br>';
-        sort($array); // 配列を昇順にソート
+        sort($array);
     } else if ($order === false) {
         echo '降順にソートします。<br>';
-        rsort($array); // 配列を降順にソート
+        rsort($array);
     }
-    return $array; // ソートした配列を返す
+    
+    foreach ($array as $value) {
+        echo $value . '<br>';
+    }
 }
 
 // 昇順
-$asc_array = sort_2way($array, true);
-foreach ($asc_array as $value) {
-    echo $value . '<br>';
-}
+sort_2way($array, true);
 
 // 降順
-$desc_array = sort_2way($array, false);
-foreach ($desc_array as $value) {
-    echo $value . '<br>';
-}
+sort_2way($array, false);
 ?>
